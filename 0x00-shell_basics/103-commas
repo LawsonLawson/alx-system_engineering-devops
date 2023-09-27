@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -maxdepth 1 -name "[[:digit:][:alpha:]].*" -o -name "[[:digit:][:alpha:]]*" -printf "%f, " | sed -e 's/^\.\//.\//' | sort | tr -d '\n' | awk '{print "./, ../, " $0}'
