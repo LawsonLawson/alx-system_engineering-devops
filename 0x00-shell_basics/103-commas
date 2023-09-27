@@ -1,2 +1,2 @@
 #!/bin/bash
-for entry in ./.* [0-9a-zA-Z]*; do echo -n "$entry, "; done | sed 's/\(.*\), /\1\n/' 
+find . -maxdepth 1 -name "[[:digit:][:alpha:]].*" -o -name "[[:digit:][:alpha:]]*" -print "%f, " | sed -e 's/^\.\//.\//' | sort | tr -d '\n' | awk '{print "./, ../, " $0}' 
