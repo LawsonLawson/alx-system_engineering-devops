@@ -1,2 +1,0 @@
-#!/bin/bash
-ls -Ap | awk 'BEGIN{ORS=", "} NR>2{print} END{print ""}'
