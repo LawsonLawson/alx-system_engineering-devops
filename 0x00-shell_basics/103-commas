@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -type d \( -name '[0-9]*' -o -name '[a-zA-Z]*' \) -printf '%f/, ' -o -type f \( -name '[0-9]*' -o -name '[a-zA-Z]*' \) -printf '%f, ' | sort | sed 's/, $/\n/'
+ls -p | grep -E '^[0-9a-zA-Z]*$' | tr '\n' ', ' | sed 's/,$/\n/'
