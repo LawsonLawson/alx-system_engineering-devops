@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -p | grep -E '^[0-9a-zA-Z]*$' | tr '\n' ', ' | sed 's/,$/\n/'
+find . -maxdepth 1 -type f -print | sort -d | tr '\n' ', ' | sed 's/,$/\n/;s/\.\//.\//'
