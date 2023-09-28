@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -Ap | awk '{if (NR>2) printf ", "; print}'
+ls -Ap | awk 'BEGIN{ORS=", "} NR>2{print} END{print "\n"}' | sed 's/\(.*\), /\1\n/'
