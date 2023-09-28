@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -Ap | awk 'BEGIN{ORS=", "} NR>2{print} END{print "\n"}' | sed 's/\(.*\), /\1\n/' | sed -E 's/([^/])$/\1\//'
+ls -Ap | awk 'BEGIN{ORS=", "} NR>2{print} END{print "\n"}' | sed 's/\(.*\), /\1\n/' | sed 's/,$//' | sed 's/, /\//g' | sed 's/\//, /g'
