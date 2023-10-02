@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Academic" | tr 'Ac' 'Ze'
+echo "Academic" | tr 'AaCc' 'ZzEe'
