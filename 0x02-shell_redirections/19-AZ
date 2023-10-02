@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "YourInput" | tr 'Ac' 'Ze'
+echo "Academic" | tr 'Ac' 'Ze'
