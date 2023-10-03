@@ -2,11 +2,11 @@
 
 This repository contains a collection of shell scripts that demonstrate various concepts related to shell variables and expansions in Unix-like systems.
 
-Table of Contents
+## Table of Contents
 
 0-alias
 Create an alias named ls that executes rm (wirldcard).
-g
+
 1-hello_you
 Create a script that prints "hello" followed by the current Linux user's name.
 
