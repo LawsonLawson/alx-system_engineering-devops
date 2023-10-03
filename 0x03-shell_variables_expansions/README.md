@@ -1,4 +1,4 @@
-Shell Scripting - Shell Variables and Expansions
+## Shell Scripting - Shell Variables and Expansions
 
 This repository contains a collection of shell scripts that demonstrate various concepts related to shell variables and expansions in Unix-like systems.
 
