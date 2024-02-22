@@ -11,8 +11,6 @@ while ((iterations < 779)); do
 		echo "$minute"
 		((minute++))
 		((iterations++))
-		if ((minute == 60)); then
-			((hour++))
-		fi
 	done
+	((hour++))
 done
