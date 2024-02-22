@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#This script is displaying "Best School"
+#This script is displaying "Best School" - (for loop)
 for ((count = 1; count < 11; count++)); do
 	echo "Best School"
 done
