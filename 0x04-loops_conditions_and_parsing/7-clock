@@ -5,12 +5,18 @@
 iterations=0
 hour=0
 while ((iterations < 779)); do
-	echo "Hour: $hour"
+	if ((hour == 13)); then
+		break
+	else
+		echo "Hour: $hour"
+	fi
 	minute=1
-	while ((minute < 60)); do
+	while ((minute <= 59)); do
 		echo $minute
 		((minute++))
 		((iterations++))
+		if ((minute == 60)); then
+			((hour++))
+		fi
 	done
-	((hour++))
 done
