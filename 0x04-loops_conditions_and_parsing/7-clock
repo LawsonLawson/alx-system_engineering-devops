@@ -5,11 +5,7 @@
 iterations=0
 hour=0
 while ((iterations < 779)); do
-	if ((hour == 13)); then
-		break
-	else
-		echo "Hour: $hour"
-	fi
+	echo "Hour: $hour"
 	minute=0
 	while ((minute < 60)); do
 		echo "$minute"
