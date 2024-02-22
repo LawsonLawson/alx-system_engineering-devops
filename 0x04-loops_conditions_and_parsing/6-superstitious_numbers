@@ -14,7 +14,7 @@ while ((_count <= 20)); do
 			echo "bad luck from Japan"
 			;;
 		17)
-			echo "bad luck form Italy"
+			echo "bad luck from Italy"
 	esac
 	((_count++))
 done
