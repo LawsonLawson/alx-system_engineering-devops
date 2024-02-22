@@ -6,7 +6,7 @@ iterations=0
 hour=0
 while ((iterations < 779)); do
 	echo "Hour: $hour"
-	minute=0
+	minute=1
 	while ((minute < 60)); do
 		echo $minute
 		((minute++))
