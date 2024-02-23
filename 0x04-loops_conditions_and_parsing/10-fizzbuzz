@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# a Bash script that displays numbers from 1 to 100
+# A Fizzbuzz program
+count=1
+limit=101
+while ((count != limit)); do
+	if ((count % 3 == 0)) && ((count % 5 == 0)); then
+		echo "FizzBuzz"
+	elif ((count % 3 == 0)); then
+		echo "Fizz"
+	elif ((count % 5 == 0)); then
+		echo "Buzz"
+	else
+		echo $count
+	fi
+	((count++))
+done
