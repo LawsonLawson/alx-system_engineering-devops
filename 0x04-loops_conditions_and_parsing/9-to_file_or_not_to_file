@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# a Bash script that gives you information about the school file.
+Path="school"
+if [ -e "$Path" ]; then
+	echo "$Path file exists"
+	if [ -s "$Path" ]; then
+		echo "$Path file is not empty"
+	else
+		echo "$Path file is empty"
+	fi
+	if [ -f "$Path" ]; then
+		echo "$Path is a regular file"
+	fi
+else
+	echo "$Path file does not exist"
+fi
