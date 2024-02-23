@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Display lines containing the word "bash" in the process list
+ps auxf | awk '/bash/'
