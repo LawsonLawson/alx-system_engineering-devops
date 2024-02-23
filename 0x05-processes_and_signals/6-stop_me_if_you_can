@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # a Bash script that stops 4-to_infinity_and_beyond process.
 # cannot use kill or killall so I am trying pkill -_-
-pid_of_process=$(pgrep -o -f "4-to_infinity_and_beyond")
-pkill "$pid_of_process"
+pkill -f 4-to_infinity_and_beyond
