@@ -2,29 +2,17 @@
 # This script configures an Ubuntu machine to meet the specified requirements for Nginx.
 
 # Update the package repositories and upgrade existing packages
-sudo apt-get update
-sudo apt-get upgrade -y
+apt-get update
+apt-get upgrade -y
 
 # Installing Nginx
-sudo apt-get install nginx -y
+apt-get install nginx -y
 
 # Verify Nginx is listening on port 80
-netstat -tuln | grep :80
+ufw allow 'Nginx HTTP'
 
 # Create a basic HTML file with the required content
-echo "Hello World!" | sudo tee /var/www/html/index.html
-
-# Configure Nginx to return "Hello World!" on root request
-echo "
-server {
-    listen 80;
-    server_name _;
-
-    location / {
-        root /var/www/html;
-        index index.html;
-    }
-}" | sudo tee /etc/nginx/sites-available/default
+echo "Hello World!" > /var/www/html/index.html
 
 # Restart Nginx without using systemctl
-sudo /etc/init.d/nginx restart
+service nginx start
