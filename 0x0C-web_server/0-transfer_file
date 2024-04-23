@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script transfers a file to a remote host using SCP
+
+# Check if all required arguments are provided
+if [ $# -lt 4 ]; then
+	echo "Usage: $0 PATH_TO_FILE IF USERNAME PATH_TO_SSH_KEY"
+	exit 1
+fi
+
+# Assigning arguments to variables
+FILE_PATH="$1"
+REMOTE_IP="$2"
+REMOTE_USERNAME="$3"
+SSH_KEY_PATH="$4"
+
+# Transfer the file using SCP with options:
+# -o StrictHostKeyChecking=no: Disable strict host key checking
+# -i "$SSH_KEY_PATH": Specify the SSH private key for authentication
+# "$FILE_PATH": Path to the local file to transfer
+# "$REMOTE_USERNAME@$REMOTE_IP:~/": Destination path on the remote host
+scp -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$FILE_PATH" "$REMOTE_USERNAME@$REMOTE_IP":~/
