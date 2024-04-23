@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script configures an Ubuntu machine to meet the specified requirements for Nginx.
+
+# Update the package repositories and upgrade existing packages
+sudo apt-get update
+sudo apt-get upgrade -y
+
+# Installing Nginx
+sudo apt-get install nginx -y
+
+# Allow Nginx traffic through the firewall on port 80
+sudo ufw allow 'Nginx HTTP'
+
+# Create a basic HTML file with the required content
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Restart Nginx without using systemctl
+sudo /etc/init.d/nginx restart
