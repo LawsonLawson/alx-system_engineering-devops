@@ -2,16 +2,16 @@
 # This script configures an Ubuntu machine to meet the specified requirements for Nginx.
 
 # Update the package repositories and upgrade existing packages
-apt-get update -y
+apt-get -y update
 
 # Installing Nginx
-apt-get install nginx -y
+apt-get -y install nginx
 
 # Verify Nginx is listening on port 80
 ufw allow 'Nginx HTTP'
 
 # Create a basic HTML file with the required content
-echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
 # Restart Nginx without using systemctl
 service nginx start
