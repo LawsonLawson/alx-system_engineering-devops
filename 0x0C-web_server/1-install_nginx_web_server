@@ -2,8 +2,7 @@
 # This script configures an Ubuntu machine to meet the specified requirements for Nginx.
 
 # Update the package repositories and upgrade existing packages
-apt-get update
-apt-get upgrade -y
+apt-get update -y
 
 # Installing Nginx
 apt-get install nginx -y
