@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# A script that performs a 301 moved permanently
+
+# Updating packages
+sudo apt-get update
+
+# Installing nginx
+sudo apt-get install -y nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+replacement_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/LawsonLawson permanent;"
+
+sudo sed -i "s/server_name _;/$replacement_string/" /etc/nginx/sites_enabled/default
+
+sudo service nginx restart
