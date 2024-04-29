@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# This script configures web-01 to generate an HTTP response header
+
+# Getting updates
+sudo apt-get update
+
+# Installing nginx
+sudo apt-get install -y nginx
+
+# Creating the index page with content "Hello World!"
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Setting up a redirection
+replacement_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/LawsonLawson permanent;"
+
+# Generating the search
+sudo sed -i "s/server_name _;/$replacement_string/" /etc/nginx/sites-enabled/default
+
+# Creating the 404 Custom error page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+replacement_string="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+
+# Generating the search
+sudo sed -i "s/listen 80 default_server;/$replacement_string/" /etc/nginx/sites-enabled/default
+
+# Creating a custom HTTP response header
+sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+
+# Testing the configurations for syntax errors
+sudo nginx -t
+
+# Restart ngix to apply changes
+sudo service nginx restart
