@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is meant for debugging nginx port 80
+# Create a symbolic link to enable the default NGINX site configuration
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+# Restart NGINX to appy changes
+sudo service nginx restart
