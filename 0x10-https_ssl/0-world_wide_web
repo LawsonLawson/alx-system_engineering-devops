@@ -1,29 +1,26 @@
 #!/usr/bin/env bash
-# This script displays information about subdomains using DNS lookup
+# Write a Bash script that will display information about the subdomains
 
 # Function to fetch DNS information for a given subdomain
 # Arguments:
 #   $1: Domain name
 #   $2: Subdomain name
 dns_config () {
-    # Store domain and subdomain names
-    local domain="$1"
-    local subdomain="$2"
-    
     # Fetch DNS information for the subdomain
     local script
-    script=$(dig "$subdomain.$domain" +short)
-
-    local record
-    record=$(dig "$subdomain.$domain" | awk '/ANSWER SECTION/{getline;print}')
+    script=$(dig +short "$2.$1")
     
     # Check if the subdomain exists
     if [ -n "$script" ]; then
+        # Determine the DNS record type
+        local record_type
+        record_type=$(dig "$2.$1" | awk '/ANSWER SECTION/{getline; print $4}')
+        
         # Display information if subdomain exists
-        echo "The subdomain $subdomain is a $record record and points to $script"
+        echo "The subdomain $2 is a $record_type record and points to $script"
     else
         # Display message if subdomain does not exist
-        echo "The subdomain $subdomain does not exist."
+        echo "The subdomain $2 does not exist."
     fi
 }
 
