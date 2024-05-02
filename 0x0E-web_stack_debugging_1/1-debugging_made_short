@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # This script configures NGINX to listen on port 80 (sweet and short version)
-# Replace occurrences of port 8080 with port 80 in NGINX configuration
-sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
-# Restart NGINX to apply the configuration changes
-service nginx restart
-# Kill the NGINX process to ensure it restarts with the new configuration
+sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo service nginx restart
 kill -9 "$(cat /run/nginx.pid)"
