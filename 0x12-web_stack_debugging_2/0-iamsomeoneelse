@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Script: get_username.sh
+# Description: Display the username of a specified user.
+#
+
+# Usage message
+usage() {
+    echo "Usage: $0 <username>"
+    echo "Example: $0 Lawson"
+    exit 1
+}
+
+# Check if username argument is provided
+if [ $# -ne 1 ]; then
+    usage
+fi
+
+# Display the username of the specified user
+sudo -su "$1" whoami
