@@ -45,4 +45,3 @@ Please feel free to investigate and employ these programs to help you improve yo
 —
 
 **Disclaimer:** This project is part of the ALX Software Engineering program and is intended to be instructional.
-
