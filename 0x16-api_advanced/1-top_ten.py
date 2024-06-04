@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import requests
 '''
 Queries the Reddit API and prints titles of the first 10 top
 posts for subreddit.
 '''
+import requests
 
 
 def top_ten(subreddit):
