@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-Module 2-count_words.py
+This function recursively fetches hot article titles from a given subreddit.
 '''
 import requests
 
