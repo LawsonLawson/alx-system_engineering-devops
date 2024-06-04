@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import requests
 '''
 Queries the Reddit API and prints titles of the first 10 top
