@@ -1,17 +1,12 @@
 # Puppet manifest to ensure Apache is configured correctly
 
-# Ensure the wp-config.php file exists and is correctly configured
-file { '/var/www/html/wp-config.php':
-  ensure  => file,
-  content => template('mymodule/wp-config.php.erb'),
-  owner   => 'www-data',
-  group   => 'www-data',
-  mode    => '0644',
+$settings_file='/var/www/html/wp-settings.php'
+file { $settings_file:
+  ensure => file,
 }
 
-# Ensure Apache service is running
-service { 'apache2':
-  ensure    => running,
-  enable    => true,
-  subscribe => File['/var/www/html/wp-config.php'],
+exec {'fix typo in settings config':
+  path    => ['/bin/', '/usr/bin/', '/usr/sbin/'],
+  command => "sed -i s/phpp/php/g ${settings_file}",
+  require => File[$settings_file],
 }
