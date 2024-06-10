@@ -1,0 +1,37 @@
+server {
+    listen 80;
+    listen [::]:80 default_server;
+
+    # Add a custom header to responses with the server's hostname
+    add_header X-Served-By $hostname;
+
+    # Set the root directory for the server
+    root /var/www/html;
+
+    # Specify the default index files
+    index index.html index.htm;
+
+    # Redirect requests to /redirect_me to the specified GitHub URL
+    location /redirect_me {
+        return 301 https://github.com/LawsonLawson;
+    }
+
+    # Handle requests to /airbnb-onepage by proxying them to a backend service
+    location /airbnb-onepage {
+        proxy_pass http://0.0.0.0:5000/airbnb-onepage;
+    }
+
+    # Serve static files for requests to /hbnb_static
+    location /hbnb_static {
+        alias /data/web_static/current/;
+    }
+
+    # Handle requests to the root URL
+    location / {
+        # First attempt to serve request as file, then as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ =404;
+    }
+
+    # Default server name
+    server_name _;
+}
