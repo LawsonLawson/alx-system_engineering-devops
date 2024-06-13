@@ -6,7 +6,7 @@ exec { 'modify max open files limit setting':
   # in the /etc/default/nginx file. After modifying the file, it restarts the
   # Nginx service to apply the changes.
   command => 'sed -i "s/15/10000/" /etc/default/nginx && sudo service nginx restart',
-  
+
   # The 'path' attribute ensures that the specified directories are included in the
   # search path for the command execution. This makes sure that 'sed' and 'service'
   # commands are found and executed correctly.
